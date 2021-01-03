@@ -18,7 +18,7 @@ export function Introduction({ about }: IntroductionProps) {
     <Box color="white" bgGradient="linear(to-b, gray.700, gray.800)">
       <Box position="relative" overflow="hidden">
         <FloatingShapes />
-        <Flex minH="100vh" justify="center">
+        <Flex minH="100%" justify="center">
           <Stack zIndex={10} align="center" justify="center" textAlign="center">
             <HighlightedText value={about.greeting} highlightColor="green.400" fontSize={["3xl", "4xl", "5xl"]} />
             <Box mt="0px">
