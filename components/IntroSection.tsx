@@ -2,6 +2,7 @@ import {
   Box,
   Divider,
   Flex,
+  Heading,
   Stack,
   Text,
 } from "@chakra-ui/react";
@@ -12,19 +13,18 @@ export function Introduction() {
     <Box color="white" bgGradient="linear(to-b, gray.700, gray.800)">
       <Box position="relative" overflow="hidden">
         <FloatingShapes />
-
         <Flex minH="100vh" justify="center">
-          <Stack zIndex={10} maxW="xl" align="center" justify="center">
-            <Text fontSize="4xl">
+          <Stack zIndex={10} maxW="xl" align="center" justify="center" textAlign="center">
+            <Heading size="xl">
               Hi, I'm{" "}
               <Text display="inline-block" color="green.400">
                 Trevor DeBardeleben
               </Text>
-            </Text>
+            </Heading>
             <Box mt="0px">
-              <Text fontSize="xl" display="inline-block">
+              <Heading size="sm" display="inline-block" fontWeight="normal">
                 A developer in Atlanta, GA
-              </Text>
+              </Heading>
             </Box>
             <Stack spacing={2} direction="row">
               <Box>Resume</Box>

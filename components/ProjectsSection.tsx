@@ -10,7 +10,7 @@ interface ProjectSectionProps {
 export function ProjectsSection({ accent, projects, ...props }: ProjectSectionProps) {
 
   return (
-    <Box as="section" py="8" position="relative" {...props} >
+    <Box py="8" position="relative" {...props} >
       <Box bg="teal.500" position="absolute" left={0} w="300px" />
       { accent && <Box {...props} w={0} h={0} right={0} top={0} zIndex={-1} borderTop={`200px solid #fff`} borderTopColor="teal.500" borderLeft={`200px solid transparent`} position="absolute" />}
 

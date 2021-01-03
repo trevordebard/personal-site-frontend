@@ -103,7 +103,7 @@ export function Circle({ left, duration, delay, size, ...props }: ShapeProps) {
 
 export function FloatingShapes() {
   return (
-    <>
+    <ul>
       <Circle duration={17} delay={0} left="6%" size="sm" />
       <Triangle duration={20} delay={12} left="15%" size="md" />
       <Circle duration={20} delay={5} left="20%" size="lg" />
@@ -112,6 +112,6 @@ export function FloatingShapes() {
       <Circle duration={20} delay={10} left="76%" size="sm" />
       <Circle duration={20} delay={0} left="76%" size="md" />
       <Triangle duration={20} delay={4} left="90%" size="sm" />
-    </>
+    </ul>
   );
 }
