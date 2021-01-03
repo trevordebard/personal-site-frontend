@@ -93,7 +93,6 @@ export function Circle({ left, duration, delay, size, ...props }: ShapeProps) {
       transition={{
         duration: duration,
         delay: delay,
-        loop: Infinity,
         type: "tween",
         ease: "linear"
       }}
