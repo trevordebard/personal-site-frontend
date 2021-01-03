@@ -35,6 +35,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
     props: {
       projects: projects.data,
       jobs: jobs.data
-    }
+    },
+    revalidate: 1
   }
 }
