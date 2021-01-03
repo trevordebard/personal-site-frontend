@@ -3,12 +3,11 @@ import { Introduction } from 'components/IntroSection'
 import { ProjectsSection } from 'components/ProjectsSection'
 import { GetStaticProps } from 'next'
 import axios, { AxiosResponse } from 'axios'
-import { IProject } from 'types'
+import { IAbout, IProject } from 'types'
 import { ExperienceSection } from 'components/ExperienceSection'
 import { Divider } from '@chakra-ui/react'
 
 export default function Home(props) {
-  console.log('props', props)
   return (
     <div >
       <Head>
@@ -17,7 +16,7 @@ export default function Home(props) {
       </Head>
 
       <main >
-        <section><Introduction /></section>
+        <section><Introduction about={props.about} /></section>
         <section><ProjectsSection accent projects={props.projects} /></section>
         <Divider maxW="6xl" mx="auto" />
         <section><ExperienceSection jobs={props.jobs} /></section>
@@ -30,11 +29,13 @@ export default function Home(props) {
 export const getStaticProps: GetStaticProps = async (context) => {
   const projects: AxiosResponse<IProject[]> = await axios.get(`${process.env.API_URL}/projects`)
   const jobs: AxiosResponse<IProject[]> = await axios.get(`${process.env.API_URL}/jobs`)
+  const about: AxiosResponse<IAbout[]> = await axios.get(`${process.env.API_URL}/about`)
 
   return {
     props: {
       projects: projects.data,
-      jobs: jobs.data
+      jobs: jobs.data,
+      about: about.data
     },
     revalidate: 1
   }
