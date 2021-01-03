@@ -67,7 +67,6 @@ export function Triangle({
       transition={{
         duration: duration,
         delay: delay,
-        loop: Infinity,
         type: "tween",
         ease: "linear"
       }}
