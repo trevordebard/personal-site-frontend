@@ -25,11 +25,11 @@ export function Introduction({ about }: IntroductionProps) {
               <HighlightedText value={about.subgreeting} highlightColor="green.400" fontSize={["md", "xl"]} />
             </Box>
             <Stack spacing={2} direction="row">
-              <Link href={about.resume.url}><Text>Resume</Text></Link>
+              <AboutLink href={about.resume.url}>Resume</AboutLink>
+              < Divider orientation="vertical" />
+              <AboutLink href={"mailto:trevordebard@gmail.com"}>Email</AboutLink>
               <Divider orientation="vertical" />
-              <Box><Text>Email</Text></Box>
-              <Divider orientation="vertical" />
-              <Box><Text>Github</Text></Box>
+              <AboutLink href="">GitHub</AboutLink>
             </Stack>
           </Stack>
         </Flex>
@@ -38,4 +38,27 @@ export function Introduction({ about }: IntroductionProps) {
   );
 }
 
+function AboutLink({ href, children }) {
+  return (
+    <Link
+      target="_blank"
+      rel="noreferrer"
+      href={href}
+      _after={{
+        content: '""', width: "100%", height: "1px", marginTop: "2px", display: "block", background: "yellow.500",
+        _hover: {
+        }
+      }}
+      _hover={{
+        textDecoration: "none",
+        _after: {
+          content: '""', width: "100%", height: "2px", marginTop: "2px", display: "block", background: "yellow.500"
+        },
+        color: "yellow.500"
+      }}
+    >
+      <Text>{children}</Text>
+    </Link>
+  )
+}
 
