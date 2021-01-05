@@ -40,7 +40,7 @@ const variants = {
 }
 
 function Project({ project, ...props }: ProjectProps) {
-  const { description, name } = project
+  const { description, name, tags } = project
   const [ref, inView] = useInView({
     triggerOnce: true,
     rootMargin: '-100px 0px',
@@ -52,23 +52,14 @@ function Project({ project, ...props }: ProjectProps) {
         <Box p="6">
           <Heading mb={2}>{name}</Heading>
           <Wrap>
-            <WrapItem>
-              <Badge textTransform="none" borderRadius="full" px="2" colorScheme="gray">
-                Next.js
-            </Badge>
-            </WrapItem>
-            <WrapItem>
-              <Badge textTransform="none" borderRadius="full" px="2" colorScheme="gray">
-                JavaScript (ES6)
-            </Badge>
-            </WrapItem>
-            <WrapItem>
-              <Badge textTransform="none" borderRadius="full" px="2" colorScheme="gray" >
-                React.js
-            </Badge>
-            </WrapItem>
+            {tags.map((tag, i) => (
+              <WrapItem key={`tag-${i}-${new Date().getTime()}`}>
+                <Badge textTransform="none" borderRadius="full" px="2" colorScheme="gray">
+                  {tag.name}
+                </Badge>
+              </WrapItem>
+            ))}
           </Wrap>
-
           <Box d="flex" mt="2" alignItems="center">
             <Box as="span" ml="2" color="gray.600" fontSize="sm">
               {description}
