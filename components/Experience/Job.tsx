@@ -1,23 +1,9 @@
-
-import { Box, Flex, Heading, List, ListIcon, ListItem, Text, SimpleGrid } from "@chakra-ui/react";
-import { CheckIcon } from '@chakra-ui/icons'
+import { Box, Flex, Heading, List, ListIcon, ListItem, SimpleGrid, Text } from "@chakra-ui/react"
 import { IJob } from "types";
 import { HighlightedText } from 'components/HighlightedText'
+import { CheckIcon } from "@chakra-ui/icons";
 
-
-export function ExperienceSection({ jobs, ...props }: { jobs: IJob[] }) {
-
-  return (
-    <Box py="8" position="relative" {...props} >
-      <Flex maxW="6xl" mx="auto" direction="column">
-        <Box bg="teal.500" position="absolute" left={0} w="300px" />
-        <Heading as="h2" textAlign="center" color="green">Experience</Heading>
-        {jobs.map(job => <Job job={job} key={`${job.id}-${new Date().getTime()}`} />)}
-      </Flex>
-    </Box >
-  )
-}
-function Job({ job }: { job: IJob }) {
+export function Job({ job }: { job: IJob }) {
   return (
     <>
       <Box mx="auto" paddingX={10} mb={5} maxW="100%">

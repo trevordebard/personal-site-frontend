@@ -1,45 +1,18 @@
-import { Box, Flex, Heading, Badge, Grid, Wrap, WrapItem } from "@chakra-ui/react";
+import { Badge, Box, Heading, Wrap, WrapItem } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { IProject } from "types";
-
-
-interface ProjectSectionProps {
-  projects: IProject[],
-  accent?: boolean
-}
-export function ProjectsSection({ accent, projects, ...props }: ProjectSectionProps) {
-
-  return (
-    <Box py="8" position="relative" {...props} >
-      <Box bg="teal.500" position="absolute" left={0} w="300px" />
-      { accent && <Box {...props} w={0} h={0} right={0} top={0} zIndex={-1} borderTop={`200px solid #fff`} borderTopColor="teal.500" borderLeft={`200px solid transparent`} position="absolute" />}
-
-      <Flex maxW="6xl" mx="auto" justify="center" direction="column" align="center">
-        <Heading as="h2" color="green">Projects</Heading>
-        <Grid w="100%" templateColumns="repeat(auto-fit, minmax(300px, 1fr))">
-          {projects.map((project, i) => {
-            return (
-              <Project project={project} key={`${project.name}-${i}-${new Date().getTime()}`} />
-            )
-          })}
-        </Grid>
-      </Flex>
-    </Box >
-  )
-}
-
 
 interface ProjectProps {
   project: IProject
 }
 
 const variants = {
-  visible: { opacity: 1, y: 0, transition: { delay: .3 } },
+  visible: { opacity: 1, y: 0, transition: { delay: .1 } },
   hidden: { opacity: 0, y: 50 },
 }
 
-function Project({ project, ...props }: ProjectProps) {
+export function Project({ project, ...props }: ProjectProps) {
   const { description, name, tags } = project
   const [ref, inView] = useInView({
     triggerOnce: true,

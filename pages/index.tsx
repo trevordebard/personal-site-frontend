@@ -1,10 +1,9 @@
-import Head from 'next/head'
-import { Introduction } from 'components/IntroSection'
-import { ProjectsSection } from 'components/ProjectsSection'
+import { Introduction } from 'components/Landing/IntroSection'
+import { ProjectsSection } from 'components/Projects/ProjectsSection'
 import { GetStaticProps } from 'next'
 import axios, { AxiosResponse } from 'axios'
 import { IAbout, IProject } from 'types'
-import { ExperienceSection } from 'components/ExperienceSection'
+import { ExperienceSection } from 'components/Experience/ExperienceSection'
 import { Divider } from '@chakra-ui/react'
 
 export default function Home(props) {
@@ -16,7 +15,6 @@ export default function Home(props) {
         <Divider maxW="6xl" mx="auto" />
         <section><ExperienceSection jobs={props.jobs} /></section>
       </main>
-
     </div>
   )
 }
