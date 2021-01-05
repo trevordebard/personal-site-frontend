@@ -41,7 +41,6 @@ const variants = {
 
 function Project({ project, ...props }: ProjectProps) {
   const { description, name, tags } = project
-  console.log(tags)
   const [ref, inView] = useInView({
     triggerOnce: true,
     rootMargin: '-100px 0px',
