@@ -1,5 +1,6 @@
 import { Box, Flex, Heading, Badge, Grid, Wrap, WrapItem } from "@chakra-ui/react";
 import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 import { IProject } from "types";
 
 
@@ -23,7 +24,6 @@ export function ProjectsSection({ accent, projects, ...props }: ProjectSectionPr
             )
           })}
         </Grid>
-
       </Flex>
     </Box >
   )
@@ -34,10 +34,20 @@ interface ProjectProps {
   project: IProject
 }
 
+const variants = {
+  visible: { opacity: 1, y: 0, transition: { delay: .3 } },
+  hidden: { opacity: 0, y: 50 },
+}
+
 function Project({ project, ...props }: ProjectProps) {
   const { description, name } = project
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+    rootMargin: '-100px 0px',
+  });
+
   return (
-    <motion.div whileHover={{ scale: 1.01 }} {...props}>
+    <motion.div ref={ref} variants={variants} initial="hidden" animate={inView ? "visible" : "hidden"} whileHover={{ scale: 1.01 }} {...props}>
       <Box minW={75} h="2xs" borderWidth="1px" borderRadius="lg" overflow="hidden" shadow="md" m={4} cursor="pointer" bg="white" >
         <Box p="6">
           <Heading mb={2}>{name}</Heading>
