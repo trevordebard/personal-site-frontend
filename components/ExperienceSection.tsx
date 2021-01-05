@@ -1,5 +1,5 @@
 
-import { Box, Flex, Heading, Stack, List, ListIcon, ListItem, Text, Divider, SimpleGrid, TextProps, ColorProps } from "@chakra-ui/react";
+import { Box, Flex, Heading, List, ListIcon, ListItem, Text, SimpleGrid } from "@chakra-ui/react";
 import { CheckIcon } from '@chakra-ui/icons'
 import { IJob } from "types";
 import { HighlightedText } from 'components/HighlightedText'
@@ -12,7 +12,7 @@ export function ExperienceSection({ jobs, ...props }: { jobs: IJob[] }) {
       <Flex maxW="6xl" mx="auto" direction="column">
         <Box bg="teal.500" position="absolute" left={0} w="300px" />
         <Heading as="h2" textAlign="center" color="green">Experience</Heading>
-        {jobs.map(job => <Job job={job} key={job.id} />)}
+        {jobs.map(job => <Job job={job} key={`${job.id}-${new Date().getTime()}`} />)}
       </Flex>
     </Box >
   )
@@ -34,9 +34,9 @@ function Job({ job }: { job: IJob }) {
           </Box>
           <Box maxW="xl">
             <List>
-              {job.bullets && job.bullets.data.map(bullet => {
+              {job.bullets && job.bullets.data.map((bullet, i) => {
                 return (
-                  <ListItem >
+                  <ListItem key={`job-bullet-${i}-${new Date().getTime()}`}>
                     <ListIcon as={CheckIcon} color="green.500" />
                     <HighlightedText value={bullet} display="inline" fontSize="sm" color="gray.700" />
                   </ListItem>

@@ -17,11 +17,9 @@ export function ProjectsSection({ accent, projects, ...props }: ProjectSectionPr
       <Flex maxW="6xl" mx="auto" justify="center" direction="column" align="center">
         <Heading as="h2" color="green">Projects</Heading>
         <Grid w="100%" templateColumns="repeat(auto-fit, minmax(300px, 1fr))">
-          {projects.map(project => {
+          {projects.map((project, i) => {
             return (
-              <>
-                <Project project={project} />
-              </>
+              <Project project={project} key={`${project.name}-${i}-${new Date().getTime()}`} />
             )
           })}
         </Grid>
@@ -37,7 +35,7 @@ interface ProjectProps {
 }
 
 function Project({ project, ...props }: ProjectProps) {
-  const { description, name, previewImg } = project
+  const { description, name } = project
   return (
     <motion.div whileHover={{ scale: 1.01 }} {...props}>
       <Box minW={75} h="2xs" borderWidth="1px" borderRadius="lg" overflow="hidden" shadow="md" m={4} cursor="pointer" bg="white" >

@@ -23,7 +23,7 @@ export function HighlightedText({ value, highlightColor, ...props }: HightedText
       valueAsArray.map((part, i) => {
         // Every odd value will be the text that should be highlighted 
         if (i % 2 !== 0) {
-          return <Text display="inline" color={highlightColor || "teal.500"} fontWeight="bold">{part}</Text>
+          return <Text as="span" key={`highlight-${i}-${new Date().getTime()}`} display="inline" color={highlightColor || "teal.500"} fontWeight="bold">{part}</Text>
         }
         return part
       })
