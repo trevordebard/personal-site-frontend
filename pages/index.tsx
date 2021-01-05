@@ -10,11 +10,6 @@ import { Divider } from '@chakra-ui/react'
 export default function Home(props) {
   return (
     <div >
-      <Head>
-        <title>Trevor D</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
       <main >
         <section><Introduction about={props.about} /></section>
         <section><ProjectsSection accent projects={props.projects} /></section>
