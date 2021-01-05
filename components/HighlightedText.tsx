@@ -15,14 +15,13 @@ interface HightedTextProps extends TextProps {
  * The string of text above would return a Chakra UI Text components and the word "work" would be bold and colored
  */
 export function HighlightedText({ value, highlightColor, ...props }: HightedTextProps) {
-  const [splittedText, setSpittedText] = useState(null)
-  useEffect(() => {
-    setSpittedText(value.split(/(?:\[\[highlight\]\]|\[\[\/highlight\]\]|three)/gi))
-  }, [value])
-  if (!splittedText) return null;
+  // Split word everywhere [[highlight]] or [[/highlight]] is
+  let valueAsArray = value.split(/(?:\[\[highlight\]\]|\[\[\/highlight\]\])/gi)
+
   return (
     <Text {...props}>{
-      splittedText.map((part, i) => {
+      valueAsArray.map((part, i) => {
+        // Every odd value will be the text that should be highlighted 
         if (i % 2 !== 0) {
           return <Text display="inline" color={highlightColor || "teal.500"} fontWeight="bold">{part}</Text>
         }
