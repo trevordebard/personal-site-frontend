@@ -68,7 +68,8 @@ export function Triangle({
         duration: duration,
         delay: delay,
         type: "tween",
-        ease: "linear"
+        ease: "linear",
+        repeat: Infinity
       }}
     />
   );
@@ -94,7 +95,8 @@ export function Circle({ left, duration, delay, size, ...props }: ShapeProps) {
         duration: duration,
         delay: delay,
         type: "tween",
-        ease: "linear"
+        ease: "linear",
+        repeat: Infinity
       }}
       size={size}
     />
