@@ -37,7 +37,7 @@ export function Introduction({ about }: IntroductionProps) {
       <Box position="relative" overflow="hidden">
         <FloatingShapes />
         <Flex minH="100vh" justify="center">
-          <MotionStack variants={variants} initial="hidden" animate="visible" zIndex={10} align="center" justify="center" textAlign="center">
+          <MotionStack mb={["100px", 0]} variants={variants} initial="hidden" animate="visible" zIndex={10} align="center" justify="center" textAlign="center">
             <MotionBox variants={variants}>
               <HighlightedText value={about.greeting} highlightColor="green.400" fontSize={["3xl", "4xl", "5xl"]} />
             </MotionBox>
