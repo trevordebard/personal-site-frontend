@@ -1,3 +1,4 @@
+import { IDemoImage } from './demo-image';
 import { ITag } from './tag';
 
 /**
@@ -9,4 +10,7 @@ export interface IProject {
   description?: string;
   tags: ITag[];
   previewImg?: any;
+  link?: string;
+  slug: string;
+  demo_images: IDemoImage[];
 }
