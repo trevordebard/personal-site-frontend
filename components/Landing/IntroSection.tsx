@@ -2,14 +2,14 @@ import {
   Box,
   Divider,
   Flex,
-  Link,
   Stack,
   Text,
 } from "@chakra-ui/react";
 import { FloatingShapes } from "components/Shapes";
 import { motion } from "framer-motion";
 import { IAbout } from "types";
-import { HighlightedText } from "./HighlightedText";
+import { HighlightedText } from "../HighlightedText";
+import { AboutLink } from "./AboutLink";
 
 interface IntroductionProps {
   about: IAbout
@@ -22,7 +22,7 @@ const variants = {
     opacity: 1,
     x: 0,
     transition: {
-      staggerChildren: 0.1
+      staggerChildren: 0.2
     }
   },
   hidden: {
@@ -37,7 +37,7 @@ export function Introduction({ about }: IntroductionProps) {
       <Box position="relative" overflow="hidden">
         <FloatingShapes />
         <Flex minH="100vh" justify="center">
-          <MotionStack variants={variants} initial="hidden" animate="visible" zIndex={10} align="center" justify="center" textAlign="center">
+          <MotionStack mb={["100px", 0]} variants={variants} initial="hidden" animate="visible" zIndex={10} align="center" justify="center" textAlign="center">
             <MotionBox variants={variants}>
               <HighlightedText value={about.greeting} highlightColor="green.400" fontSize={["3xl", "4xl", "5xl"]} />
             </MotionBox>
@@ -58,27 +58,4 @@ export function Introduction({ about }: IntroductionProps) {
   );
 }
 
-function AboutLink({ href, children }) {
-  return (
-    <Link
-      target="_blank"
-      rel="noreferrer"
-      href={href}
-      _after={{
-        content: '""', width: "100%", height: "1px", marginTop: "2px", display: "block", background: "yellow.500",
-        _hover: {
-        }
-      }}
-      _hover={{
-        textDecoration: "none",
-        _after: {
-          content: '""', width: "100%", height: "2px", marginTop: "2px", display: "block", background: "yellow.500"
-        },
-        color: "yellow.500"
-      }}
-    >
-      <Text>{children}</Text>
-    </Link>
-  )
-}
 
