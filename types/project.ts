@@ -9,4 +9,5 @@ export interface IProject {
   description?: string;
   tags: ITag[];
   previewImg?: any;
+  code_link: string;
 }
