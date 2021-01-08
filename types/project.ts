@@ -5,9 +5,10 @@ import { ITag } from './tag';
  */
 export interface IProject {
   id: string;
-  name?: string;
-  description?: string;
+  name: string;
+  description: string;
   tags: ITag[];
   previewImg?: any;
   code_link: string;
+  order: number;
 }

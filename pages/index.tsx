@@ -20,14 +20,16 @@ export default function Home(props) {
 }
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const projects: AxiosResponse<IProject[]> = await axios.get(`${process.env.API_URL}/projects`)
-  const jobs: AxiosResponse<IProject[]> = await axios.get(`${process.env.API_URL}/jobs`)
+  const projectsRes: AxiosResponse<IProject[]> = await axios.get(`${process.env.API_URL}/projects`)
+  const jobsRes: AxiosResponse<IProject[]> = await axios.get(`${process.env.API_URL}/jobs`)
   const about: AxiosResponse<IAbout[]> = await axios.get(`${process.env.API_URL}/about`)
 
+  let projects = projectsRes.data.sort((a, b) => a.order > b.order ? 1 : -1)
+  let jobs = jobsRes.data.sort((a, b) => a.order > b.order ? 1 : -1)
   return {
     props: {
-      projects: projects.data,
-      jobs: jobs.data,
+      projects: projects,
+      jobs: jobs,
       about: about.data
     },
     revalidate: 1
