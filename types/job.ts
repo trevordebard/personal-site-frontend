@@ -5,12 +5,13 @@ import { ITag } from './tag';
  */
 export interface IJob {
   id: string;
-  title?: string;
-  description?: string;
-  company?: string;
+  title: string;
+  description: string;
+  company: string;
   tags: ITag[];
   preview?: any;
   bullets: { [key: string]: any };
-  start_date?: string;
-  end_date?: string;
+  start_date: string;
+  end_date: string;
+  order: number;
 }
