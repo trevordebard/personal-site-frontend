@@ -6,8 +6,8 @@ module.exports = {
     return [
       {
         source: '/admin',
-        destination: 'https://secure-waters-64507.herokuapp.com/admin',
-        permanent: true,
+        destination: 'https://personal-site-backend.fly.dev/admin',
+        permanent: false,
       },
     ]
   },
