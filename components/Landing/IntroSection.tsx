@@ -14,8 +14,8 @@ import { AboutLink } from "./AboutLink";
 interface IntroductionProps {
   about: IAbout
 }
-const MotionBox = motion.custom(Box)
-const MotionStack = motion.custom(Stack)
+const MotionBox = motion(Box)
+const MotionStack = motion(Stack)
 
 const variants = {
   visible: {

@@ -9,7 +9,7 @@ export function ExperienceSection({ jobs, ...props }: { jobs: IJob[] }) {
     <Box py="8" position="relative" {...props} >
       <Flex maxW="6xl" mx="auto" direction="column">
         <Box bg="teal.500" position="absolute" left={0} w="300px" />
-        <Heading as="h2" textAlign="center" color="green">Experience</Heading>
+        <Heading as="h2" textAlign="center">Experience</Heading>
         {jobs.map(job => <Job job={job} key={`${job.id}-${new Date().getTime()}`} />)}
       </Flex>
     </Box >

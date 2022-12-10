@@ -12,10 +12,10 @@ export function ProjectsSection({ accent, projects, ...props }: ProjectSectionPr
   return (
     <Box py="8" position="relative" {...props} >
       <Box bg="teal.500" position="absolute" left={0} w="300px" />
-      { accent && <Box {...props} w={0} h={0} right={0} top={0} zIndex={-1} borderTop={`200px solid #fff`} borderTopColor="teal.500" borderLeft={`200px solid transparent`} position="absolute" />}
+      {accent && <Box {...props} w={0} h={0} right={0} top={0} zIndex={-1} borderTop={`200px solid #fff`} borderTopColor="teal.500" borderLeft={`200px solid transparent`} position="absolute" />}
 
       <Flex maxW="6xl" mx="auto" justify="center" direction="column" align="center">
-        <Heading as="h2" color="green">Projects</Heading>
+        <Heading as="h2">Projects</Heading>
         <Grid w="100%" templateColumns="repeat(auto-fit, minmax(300px, 1fr))">
           {projects.map((project, i) => {
             return (
