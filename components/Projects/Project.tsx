@@ -33,7 +33,7 @@ export function Project({ project, ...props }: ProjectProps) {
               </WrapItem>
             ))}
           </Wrap>
-          <Box d="flex" mt="2" alignItems="center">
+          <Box display="flex" mt="2" alignItems="center">
             <Box as="span" color="gray.600" fontSize="sm">
               {description}
             </Box>
